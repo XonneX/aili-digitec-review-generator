@@ -54,10 +54,14 @@ try:
     print(f"Product Price: {product_price}")
     print(f"Product Rating: {product_rating}")
 
+    # Go to all reviews page
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[@id='pageContent']/div/div[1]/section[7]/div[3]/div[3]/div/div[2]/a"))
+    ).click()
 
     # Get all reviews
     reviews = WebDriverWait(driver, 10).until(
-        EC.visibility_of_all_elements_located((By.XPATH, "//li[@class='sc-3161b885-2 dSmsTk']"))
+        EC.visibility_of_all_elements_located((By.XPATH, "//*[@id='pageContent']/div/div[4]/ul/li"))
     )
 
     for index, review in enumerate(reviews, start=1):
