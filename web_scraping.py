@@ -69,7 +69,8 @@ try:
         review_rating = review.find_element(By.XPATH, ".//article/div[1]/span").get_attribute("aria-label")
 
         # Get review description
-        review_description = review.find_element(By.XPATH, ".//article/div[1]/p/span/span").text
+        review_description_elements = review.find_elements(By.XPATH, ".//article/div[1]/p/span/span")
+        review_description = review_description_elements[0].text if review_description_elements else None
 
         # Get review pros
         review_pros = review.find_elements(By.XPATH,
