@@ -66,6 +66,11 @@ try:
 
     for index, review in enumerate(reviews, start=1):
 
+        # Check if there is a "more" button
+        #more_button_elements = review.find_elements(By.XPATH, ".//div[1]/p/button")
+        #if more_button_elements:
+        #    more_button_elements[0].click()
+
         # Get review title
         review_title = review.find_element(By.XPATH, ".//h4").text
 
@@ -75,6 +80,8 @@ try:
         # Get review description
         review_description_elements = review.find_elements(By.XPATH, ".//article/div[1]/p/span/span")
         review_description = review_description_elements[0].text if review_description_elements else None
+        additional_description_elements = review.find_elements(By.XPATH, ".//article/div[1]/p/span[2]/span")
+        additional_description = additional_description_elements[0].text if additional_description_elements else None
 
         # Get review pros
         review_pros = review.find_elements(By.XPATH,
@@ -89,7 +96,8 @@ try:
         print(f"Review Index: {index}")
         print(f"Review rating: {review_rating}:")
         print(f"Review Title: {review_title}")
-        print(f"Review Description: {review_description}")
+        print(f"Review Description1: {review_description}")
+        print(f"Review Description2: {additional_description}")
         print(f"Review Pros: {review_pros}")
         print(f"Review Cons: {review_cons}")
 
