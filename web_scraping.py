@@ -66,6 +66,10 @@ try:
         EC.visibility_of_all_elements_located((By.XPATH, "//*[@id='pageContent']/div/div[4]/ul/li"))
     )
 
+    print()
+    print(" ########################################## ")
+    print()
+
     for index, review in enumerate(reviews, start=1):
 
         # Scroll the review into view
@@ -89,28 +93,27 @@ try:
         review_rating = review.find_element(By.XPATH, ".//article/div[1]/span").get_attribute("aria-label")
 
         # Get review description
-        review_description_elements = review.find_elements(By.XPATH, ".//article/div[1]/p/span/span")
+        review_description_elements = review.find_elements(By.XPATH, ".//article/div[1]/p")
         review_description = review_description_elements[0].text if review_description_elements else None
-        additional_description_elements = review.find_elements(By.XPATH, ".//article/div[1]/p/span[2]/span")
-        additional_description = additional_description_elements[0].text if additional_description_elements else None
 
         # Get review pros
-        review_pros = review.find_elements(By.XPATH,
-                                           ".//article/div[1]/div[2]/div/ul[1]")
+        review_pros = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[1]")
         review_pros = [element.text for element in review_pros]
 
         # Get review cons
-        review_cons = review.find_elements(By.XPATH,
-                                           ".//article/div[1]/div[2]/div/ul[2]")
+        review_cons = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[2]")
         review_cons = [element.text for element in review_cons]
 
         print(f"Review Index: {index}")
         print(f"Review rating: {review_rating}:")
         print(f"Review Title: {review_title}")
-        print(f"Review Description1: {review_description}")
-        print(f"Review Description2: {additional_description}")
+        print(f"Review Description: {review_description}")
         print(f"Review Pros: {review_pros}")
         print(f"Review Cons: {review_cons}")
+
+        print()
+        print(" ########################################## ")
+        print()
 
 
     #input("Press any key to continue...")
