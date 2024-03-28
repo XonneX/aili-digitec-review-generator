@@ -1,4 +1,6 @@
+import time
 from selenium import webdriver
+from selenium.common import ElementClickInterceptedException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -15,7 +17,7 @@ try:
     )
     # Perform the search
     search_input.click()
-    search_input.send_keys("Iphone")
+    search_input.send_keys("S24")
     search_input.send_keys(Keys.ENTER)
 
     # Clicking the first article
@@ -66,10 +68,19 @@ try:
 
     for index, review in enumerate(reviews, start=1):
 
-        # Check if there is a "more" button
-        #more_button_elements = review.find_elements(By.XPATH, ".//div[1]/p/button")
-        #if more_button_elements:
-        #    more_button_elements[0].click()
+        # Scroll the review into view
+        driver.execute_script("arguments[0].scrollIntoView(true);", review)
+        time.sleep(1)  # Add a short delay to ensure the element is fully in view
+
+        # Check if there is a "more" button and click it
+        more_button_elements = review.find_elements(By.XPATH, ".//div[1]/p/button")
+        if more_button_elements:
+            try:
+                more_button_elements[0].click()
+            except ElementClickInterceptedException:
+                print("Element click intercepted, trying alternative method...")
+                # If click is intercepted, try clicking via JavaScript
+                driver.execute_script("arguments[0].click();", more_button_elements[0])
 
         # Get review title
         review_title = review.find_element(By.XPATH, ".//h4").text
