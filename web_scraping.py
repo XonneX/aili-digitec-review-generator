@@ -73,6 +73,8 @@ try:
 
     for index, review in enumerate(reviews, start=1):
 
+        print(f"Review Index: {index}")
+
         # Scroll the review into view
         driver.execute_script("arguments[0].scrollIntoView(true);", review)
         time.sleep(1)  # Add a short delay to ensure the element is fully in view
@@ -87,29 +89,27 @@ try:
                 # If click is intercepted, try clicking via JavaScript
                 driver.execute_script("arguments[0].click();", more_button_elements[0])
 
-        # Get review title
-        review_title = review.find_element(By.XPATH, ".//h4").text
-
         # Get review rating
         review_rating = review.find_element(By.XPATH, ".//article/div[1]/span").get_attribute("aria-label")
+        print(f"Review rating: {review_rating}:")
+
+        # Get review title
+        review_title = review.find_element(By.XPATH, ".//h4").text
+        print(f"Review Title: {review_title}")
 
         # Get review description
         review_description_elements = review.find_elements(By.XPATH, ".//article/div[1]/p")
         review_description = review_description_elements[0].text if review_description_elements else None
+        print(f"Review Description: {review_description}")
 
         # Get review pros
         review_pros = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[1]")
         review_pros = [element.text for element in review_pros]
+        print(f"Review Pros: {review_pros}")
 
         # Get review cons
         review_cons = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[2]")
         review_cons = [element.text for element in review_cons]
-
-        print(f"Review Index: {index}")
-        print(f"Review rating: {review_rating}:")
-        print(f"Review Title: {review_title}")
-        print(f"Review Description: {review_description}")
-        print(f"Review Pros: {review_pros}")
         print(f"Review Cons: {review_cons}")
 
         print()
