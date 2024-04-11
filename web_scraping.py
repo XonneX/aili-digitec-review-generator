@@ -1,6 +1,6 @@
 import time
 from selenium import webdriver
-from selenium.common import ElementClickInterceptedException
+from selenium.common import ElementClickInterceptedException, TimeoutException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -65,15 +65,18 @@ try:
     reviews = WebDriverWait(driver, 10).until(
         EC.visibility_of_all_elements_located((By.XPATH, "//*[@id='pageContent']/div/ul/li"))
     )
-    print(f"Number of Reviews: {len(reviews)}")
-
-    print()
-    print(" ########################################## ")
-    print()
+    if reviews:
+        print(f"Number of Reviews: {len(reviews)}")
+    else:
+        print("No reviews found.")
 
     for index, review in enumerate(reviews, start=1):
 
+        print()
+        print(" ########################################## ")
+        print()
         print(f"Review Index: {index}")
+        print()
 
         # Scroll the review into view
         driver.execute_script("arguments[0].scrollIntoView(true);", review)
@@ -112,15 +115,11 @@ try:
         review_cons = [element.text for element in review_cons]
         print(f"Review Cons: {review_cons}")
 
-        print()
-        print(" ########################################## ")
-        print()
+    # input("Press any key to continue...")
 
-
-    #input("Press any key to continue...")
-
-
+except TimeoutException:
+    print("Timeout while waiting for reviews to load.")
 except Exception as e:
-    print(e)
+    print(f"An error occurred: {e}")
 finally:
     driver.quit()
