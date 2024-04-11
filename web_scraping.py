@@ -58,7 +58,7 @@ try:
 
     # Go to all reviews page
     WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='pageContent']/div/div[1]/section[7]/div[3]/div[3]/div/div[2]/a"))
+        EC.visibility_of_element_located((By.LINK_TEXT, "Zu weiteren Produktbewertungen"))
     ).click()
 
     # Get all reviews
