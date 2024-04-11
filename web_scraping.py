@@ -65,6 +65,7 @@ try:
     reviews = WebDriverWait(driver, 10).until(
         EC.visibility_of_all_elements_located((By.XPATH, "//*[@id='pageContent']/div/ul/li"))
     )
+    print(f"Number of Reviews: {len(reviews)}")
 
     print()
     print(" ########################################## ")
