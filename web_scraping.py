@@ -63,7 +63,7 @@ try:
 
     # Get all reviews
     reviews = WebDriverWait(driver, 10).until(
-        EC.visibility_of_all_elements_located((By.XPATH, "//*[@id='pageContent']/div/div[4]/ul/li"))
+        EC.visibility_of_all_elements_located((By.XPATH, "//*[@id='pageContent']/div/ul/li"))
     )
 
     print()
