@@ -106,18 +106,16 @@ try:
         print(f"Review Description: {review_description}")
 
         # Get review pros
-        review_pros = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[1]")
-        review_pros = [element.text for element in review_pros]
-        print(f"Review Pros:")
+        review_pros_elements = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[1]/li")
+        review_pros = [element.text for element in review_pros_elements]
         for pro in review_pros:
-            print(pro)
+            print(f"Pro : {pro}")
 
         # Get review cons
-        review_cons = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[2]")
-        review_cons = [element.text for element in review_cons]
-        print(f"Review Cons:")
+        review_cons_elements = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[2]")
+        review_cons = [element.text for element in review_cons_elements]
         for con in review_cons:
-            print(con)
+            print(f"Con : {con}")
 
     # input("Press any key to continue...")
 
