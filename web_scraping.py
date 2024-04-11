@@ -24,36 +24,36 @@ try:
     WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//*[@id='productListingContainer']/div[4]/article[1]"))
     ).click()
+    print(f"Navigate to article")
 
     # Get brand name
     product_brand_name = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[2]/h1/strong"))
+        EC.element_to_be_clickable((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[1]/div/h1/strong"))
     ).text
+    print(f"Product Brand Name: {product_brand_name}")
 
     # Get product name
     product_name = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[2]/h1/span"))
+        EC.element_to_be_clickable((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[1]/div/h1/span"))
     ).text
+    print(f"Product Name: {product_name}")
 
     # Get description
     product_description = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[2]/span"))
+        EC.visibility_of_element_located((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[1]/div/span"))
     ).text
+    print(f"Product Description: {product_description}")
 
     # Get price
     product_price = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//button[@class='sc-125c42c7-5 hMyxKO']//span"))
+        EC.visibility_of_element_located((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[1]/span/strong/button/span"))
     ).text
+    print(f"Product Price: {product_price}")
 
     # Get overall rating
     product_rating = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'star_stars__LYfBH')]"))
+        EC.visibility_of_element_located((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/a/span[3]"))
     ).get_attribute("aria-label")
-
-    print(f"Product Brand Name: {product_brand_name}")
-    print(f"Product Name: {product_name}")
-    print(f"Product Description: {product_description}")
-    print(f"Product Price: {product_price}")
     print(f"Product Rating: {product_rating}")
 
     # Go to all reviews page
