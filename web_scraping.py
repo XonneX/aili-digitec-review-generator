@@ -56,6 +56,15 @@ try:
     ).get_attribute("aria-label")
     print(f"Product Rating: {product_rating}")
 
+    # Get basic product info
+    product_info = {
+        "brand_name": product_brand_name,
+        "name": product_name,
+        "description": product_description,
+        "price": product_price,
+        "rating": product_rating
+    }
+
     # Go to all reviews page
     WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.LINK_TEXT, "Zu weiteren Produktbewertungen"))
@@ -102,9 +111,16 @@ try:
         # Append the review details to the list of all reviews
         all_reviews.append(review_details)
 
+    # Create a dictionary to store both the product info and the reviews
+    data = {
+        "product_info": product_info,
+        "reviews": all_reviews
+    }
+
     # Write the data to a JSON file
     with open('reviews.json', 'w') as f:
-        json.dump(all_reviews, f, indent=4)
+        json.dump(data, f, indent=4)
+
     # input("Press any key to continue...")
 
 except TimeoutException:
