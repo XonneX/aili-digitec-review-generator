@@ -46,7 +46,7 @@ try:
 
     # Get price
     product_price = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[1]/span/strong/button/span"))
+        EC.visibility_of_element_located((By.XPATH, "//*[@id='pageContent']/div/div[1]/div[1]/div/div[2]/div/div[1]/span/strong/button"))
     ).text
     print(f"Product Price: {product_price}")
 
@@ -79,7 +79,7 @@ try:
     else:
         print("No reviews found.")
 
-    all_reviews = []
+    product_reviews = []
 
     for index, review in enumerate(reviews, start=1):
         # Initialize an empty dictionary to store the review details
@@ -109,12 +109,12 @@ try:
         review_details["cons"] = review_cons
 
         # Append the review details to the list of all reviews
-        all_reviews.append(review_details)
+        product_reviews.append(review_details)
 
     # Create a dictionary to store both the product info and the reviews
     data = {
         "product_info": product_info,
-        "reviews": all_reviews
+        "reviews": product_reviews
     }
 
     # Write the data to a JSON file
