@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import pandas as pd
+import json
 
 driver = webdriver.Chrome()
 driver.get('https://digitec.ch/de')
@@ -70,53 +70,41 @@ try:
     else:
         print("No reviews found.")
 
+    all_reviews = []
+
     for index, review in enumerate(reviews, start=1):
-
-        print()
-        print(" ########################################## ")
-        print()
-        print(f"Review Index: {index}")
-        print()
-
-        # Scroll the review into view
-        driver.execute_script("arguments[0].scrollIntoView(true);", review)
-        time.sleep(1)  # Add a short delay to ensure the element is fully in view
-
-        # Check if there is a "more" button and click it
-        more_button_elements = review.find_elements(By.XPATH, ".//div[1]/p/button")
-        if more_button_elements:
-            try:
-                more_button_elements[0].click()
-            except ElementClickInterceptedException:
-                print("Element click intercepted, trying alternative method...")
-                # If click is intercepted, try clicking via JavaScript
-                driver.execute_script("arguments[0].click();", more_button_elements[0])
+        # Initialize an empty dictionary to store the review details
+        review_details = {}
 
         # Get review rating
         review_rating = review.find_element(By.XPATH, ".//article/div[1]/span").get_attribute("aria-label")
-        print(f"Review rating: {review_rating}:")
+        review_details["rating"] = review_rating
 
         # Get review title
         review_title = review.find_element(By.XPATH, ".//h4").text
-        print(f"Review Title: {review_title}")
+        review_details["title"] = review_title
 
         # Get review description
         review_description_elements = review.find_elements(By.XPATH, ".//article/div[1]/p")
         review_description = review_description_elements[0].text if review_description_elements else None
-        print(f"Review Description: {review_description}")
+        review_details["description"] = review_description
 
         # Get review pros
         review_pros_elements = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[1]/li")
         review_pros = [element.text for element in review_pros_elements]
-        for pro in review_pros:
-            print(f"Pro : {pro}")
+        review_details["pros"] = review_pros
 
         # Get review cons
         review_cons_elements = review.find_elements(By.XPATH,".//article/div[1]/div[2]/div/ul[2]")
         review_cons = [element.text for element in review_cons_elements]
-        for con in review_cons:
-            print(f"Con : {con}")
+        review_details["cons"] = review_cons
 
+        # Append the review details to the list of all reviews
+        all_reviews.append(review_details)
+
+    # Write the data to a JSON file
+    with open('reviews.json', 'w') as f:
+        json.dump(all_reviews, f, indent=4)
     # input("Press any key to continue...")
 
 except TimeoutException:
