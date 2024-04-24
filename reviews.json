@@ -1,0 +1,118 @@
+{
+    "product_info": {
+        "brand_name": "Samsung",
+        "name": "Galaxy S24",
+        "description": "256 GB, Onyx Black, 6.20\", SIM + eSIM, 50 Mpx, 5G",
+        "price": "759.\u2013\nCHF",
+        "rating": "4.7 von 5 Sternen"
+    },
+    "reviews": [
+        {
+            "rating": "5.0 von 5 Sternen",
+            "title": "super Entwicklungsschritt - vor allem bei Akku und Display",
+            "description": "Das S24 ist wirklich ein Fortschritt. Auf Energiesparen mit max. 70\u00f7 Prozessorleistung und im 4G Lte Modus nach einem Tag guter Nutzung 75% Akkustand - und trotzdem sauschnell und immer k\u00fchl. Es wird beim normalen Arbeiten mehr",
+            "pros": [
+                "Fotos 1A",
+                "Display",
+                "Akkulaufzeit",
+                "Speed"
+            ],
+            "cons": [
+                "Sound etwas schw\u00e4cher als beim S20\nk\u00f6nnte d\u00fcnner sein"
+            ]
+        },
+        {
+            "rating": "5.0 von 5 Sternen",
+            "title": "Sch\u00f6nes Ger\u00e4t, schlechte Verpackung",
+            "description": "Das Ger\u00e4t ist top und f\u00fchlt sich gut in den H\u00e4nden an. Ein grosses Minus ist nur die Liefrung, da das Handy in einem Paket versendet wurde, wo man 20 Handys h\u00e4tte versenden k\u00f6nnen. Zus\u00e4tzlich war es nichtmal mit Stopfmaterial mehr",
+            "pros": [
+                "Top Handy"
+            ],
+            "cons": [
+                "Verpackung"
+            ]
+        },
+        {
+            "rating": "5.0 von 5 Sternen",
+            "title": "Bis jetzt Topp",
+            "description": null,
+            "pros": [
+                "Akkulaufzeit",
+                "Bildschirm",
+                "Wird auch unter Last nicht heiss",
+                "7 Jahre Updates"
+            ],
+            "cons": [
+                "Ziegelsteindesign ;-)"
+            ]
+        },
+        {
+            "rating": "1.0 von 5 Sternen",
+            "title": "Ent\u00e4uscht",
+            "description": "Ich bin vom Asus Zenfone 9 auf dieses Handy umgestiegen und nach knapp einer Woche muss ich sagen, das ich mir den Kauf h\u00e4tte sparen k\u00f6nnen. Weiss nicht wieso Samsung uns ihre eigenen Chips aufzwingen wollen, wo doch klar\n\n\n\n\n\n\n\n\n mehr",
+            "pros": [
+                "Design",
+                "Farbe",
+                "Kamera A.I.",
+                "Gr\u00f6sse"
+            ],
+            "cons": [
+                "Exynos-Chip\nBatterie\nSound"
+            ]
+        },
+        {
+            "rating": "5.0 von 5 Sternen",
+            "title": "Ausgezeichnetes Telefon",
+            "description": null,
+            "pros": [],
+            "cons": []
+        },
+        {
+            "rating": "5.0 von 5 Sternen",
+            "title": "Super Ger\u00e4t und klein",
+            "description": "Die Akkulaufzeit ist der Hammer. Jedoch muss das Ger\u00e4t zuerst deine Nutzung erkennen und kann dadurch die Akkulaufzeit verbessern. Die Leistung ist f\u00fcr Spiele und den Rest super. Die Kamera ist scharf, Lichtstark und l\u00f6st mehr",
+            "pros": [
+                "Gr\u00f6sse",
+                "Akkulaufzeit",
+                "Leistung",
+                "Kamera"
+            ],
+            "cons": []
+        },
+        {
+            "rating": "5.0 von 5 Sternen",
+            "title": "Rasche Antwort auf meine Frage und gute Abwicklung der Bestellung",
+            "description": null,
+            "pros": [],
+            "cons": []
+        },
+        {
+            "rating": "4.0 von 5 Sternen",
+            "title": "Sch\u00f6nes Ger\u00e4t",
+            "description": "Ich bin bis jetzt zufrieden mit dem Ger\u00e4t.",
+            "pros": [
+                "Akkulaufzeit",
+                "7 Jahre Updates",
+                "Display"
+            ],
+            "cons": [
+                "eher dick und schwer\nteuer"
+            ]
+        },
+        {
+            "rating": "5.0 von 5 Sternen",
+            "title": "Rundum zufrieden",
+            "description": "Habs noch keine Sekunde bereut, das Teil gekauft zu haben! Absolut begeistert!\nNegatives kann ich nach wie vor nicht finden.",
+            "pros": [
+                "Fotos 1A",
+                "Videoaufnahmen (Konzert) top",
+                "liegt gut in der Hand",
+                "sch\u00f6n verarbeitet",
+                "schnell und ruckelfrei",
+                "super Display",
+                "gute Akkulaufzeit"
+            ],
+            "cons": []
+        }
+    ]
+}
