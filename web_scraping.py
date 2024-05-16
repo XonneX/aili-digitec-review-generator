@@ -67,7 +67,7 @@ try:
 
     # Go to all reviews page
     WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.LINK_TEXT, "Zu weiteren Produktbewertungen"))
+        EC.visibility_of_element_located((By.LINK_TEXT, "Weitere Bewertungen"))
     ).click()
 
     # Get all reviews
