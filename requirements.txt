@@ -1,5 +1,4 @@
 scikit-learn
-accelerate
 transformers
+accelerate
 selenium
-pandas
