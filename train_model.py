@@ -81,7 +81,7 @@ model = AutoModelWithLMHead.from_pretrained(pretrained_model).to('cuda')
 training_args = TrainingArguments(
     output_dir="gpt2-ger-digitec",  # The output directory
     overwrite_output_dir=True,  # overwrite the content of the output directory
-    num_train_epochs=3,  # number of training epochs
+    num_train_epochs=1000,  # number of training epochs
     per_device_train_batch_size=32,  # batch size for training
     per_device_eval_batch_size=64,  # batch size for evaluation
     eval_steps=400,  # Number of update steps between two evaluations.
@@ -98,6 +98,6 @@ trainer = Trainer(
     eval_dataset=test_dataset,
 )
 
-trainer.train()
+trainer.train(resume_from_checkpoint=True)
 
 trainer.save_model()
