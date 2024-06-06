@@ -34,3 +34,8 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 HP Color LaserJet Pro MFP M183fw
 > Sie sind hier: HOME » Datenzugänge » chronologisch » VOLKSWAGEN Golf IV FL1
 
+## Laserjet
+
+HP Color LaserJet Pro MFP M183fw
+> HP Color LaserJet Pro MFP M183fw ist ein
+> Hochleistungs-Laserjet-Laserjet-Laserjet-Laserjet-Laserjet-Laserjet-Laserjet-Laserjet-Laserjet-Laserjet-Laserjet-Laser
