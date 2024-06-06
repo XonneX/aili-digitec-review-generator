@@ -1,6 +1,6 @@
 import argparse
 
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
 parser = argparse.ArgumentParser(
     prog='model_generate.py',
@@ -9,26 +9,6 @@ parser = argparse.ArgumentParser(
 parser.add_argument('sentence')
 args = parser.parse_args()
 
-local_model_path = 'gpt2-ger-digitec'
-
-tokenizer = AutoTokenizer.from_pretrained("anonymous-german-nlp/german-gpt2")
-model = AutoModelForCausalLM.from_pretrained(local_model_path)
-
-input_text = args.sentence
-
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
-
-input_ids = tokenizer(input_text, return_tensors='pt')
-
-outputs = model.generate(
-    **input_ids,
-    pad_token_id=tokenizer.pad_token_id,
-    num_beams=5,
-    max_new_tokens=50,
-    do_sample=True,
-)
-
-response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-print(response)
+dig = pipeline('text-generation', model='gpt2-ger-digitec', tokenizer='anonymous-german-nlp/german-gpt2')
+result = dig(args.sentence)[0]['generated_text']
+print(result)
