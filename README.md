@@ -27,3 +27,10 @@ the notebook in the shine of a full moon is advised.
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 
+# Fails
+
+## You want a navigation? No? You sure?
+
+HP Color LaserJet Pro MFP M183fw
+> Sie sind hier: HOME » Datenzugänge » chronologisch » VOLKSWAGEN Golf IV FL1
+
